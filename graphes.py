@@ -47,18 +47,46 @@ class Graphe:
                     print("-" + (" "*(taille_max-1)), end="|")
             print("")
 
+    def existence_arcs(self, init, term, tab):
+        for i in range(len(tab)):
+            if tab[i][0] == init and tab[i][1] == term:
+                return [tab[i][2], i]
+        return ["-", ""]
+
     def floyd_warshall(self):
         print("ALGORITHME DE FLOYD-WARSHALL")
         etat = 0
         changement = True
         print("ETAT INITIAL")
         self.matrice_adj()
-        transitions = self.arcs
+        transition = []
+        transition = transition + self.arcs
         while changement:
             etat += 1
-            for arcs in transitions:
-                for things in self.arcs:
-                    if arcs[1] == things[0]:
-                        #  à terminer
+            changement = False
+            for arcs in self.arcs:
+                for thing in self.arcs:
+                    if arcs[1] == thing[0]:
+                        [new_val, id] = self.existence_arcs(arcs[0], thing[1], transition)
+                        if new_val == "-":
+                            transition.append([arcs[0], thing[1], str(int(arcs[2])+int(thing[2]))])
+                            print([arcs[0], thing[1], str(int(arcs[2])+int(thing[2]))])
+                            changement = True
+                        elif int(new_val) > int(arcs[2])+int(thing[2]):
+                            transition[id][2] = str(int(arcs[2])+int(thing[2]))
+                            print([arcs[0], thing[1], str(int(arcs[2]) + int(thing[2]))])
+                            changement = True
+            cycle_absorbant = False
+            for i in range(self.nombre_sommet):
+                valeur = self.existence_arcs(str(i), str(i), transition)[0]
+                if valeur != "-":
+                    if int(valeur) < 0:
+                        cycle_absorbant = True
+                        changement = False
+            if cycle_absorbant:
+                print("Il existe un cycle absorbant")
+            print("ETAPE n°" + str(etat+1))
+            self.arcs = transition
+            self.matrice_adj()
 
 
