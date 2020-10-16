@@ -70,11 +70,9 @@ class Graphe:
                         [new_val, id] = self.existence_arcs(arcs[0], thing[1], transition)
                         if new_val == "-":
                             transition.append([arcs[0], thing[1], str(int(arcs[2])+int(thing[2]))])
-                            print([arcs[0], thing[1], str(int(arcs[2])+int(thing[2]))])
                             changement = True
                         elif int(new_val) > int(arcs[2])+int(thing[2]):
                             transition[id][2] = str(int(arcs[2])+int(thing[2]))
-                            print([arcs[0], thing[1], str(int(arcs[2]) + int(thing[2]))])
                             changement = True
             cycle_absorbant = False
             for i in range(self.nombre_sommet):
