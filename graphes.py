@@ -59,10 +59,10 @@ class Graphe:
         etat = 0
         changement = True
         print("ETAT INITIAL")
-        self.matrice_adj()
-        transition = []
-        transition = transition + self.arcs  # le tableau de transition contient tout les arcs
+        self.matrice_adj()  # le tableau de transition contient tout les arcs
         while changement:
+            transition = []
+            transition = transition + self.arcs
             etat += 1
             changement = False
             for arcs in self.arcs:
