@@ -2,7 +2,6 @@
 import graphes
 
 if __name__ == '__main__':
-    choix = -1
     choix = input("Quelles graphes orientés voulez vous choisir ? tapez fin pour arreter")
     while choix != "fin":
         try:

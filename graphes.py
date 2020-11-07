@@ -54,9 +54,17 @@ class Graphe:
                 return [tab[i][2], i]
         return ["-", ""]
 
+    def existence_chemin(self, init, term, chemin):
+        for i in range(len(chemin)):
+            if init == chemin[i][0] and term == chemin[i][len(chemin[i])-1]:
+                return i
+
     def floyd_warshall(self):
         print("ALGORITHME DE FLOYD-WARSHALL")
         etat = 0
+        chemin = []
+        for i in self.arcs:
+            chemin.append([i[0], i[1]])
         changement = True
         print("ETAT INITIAL")
         self.matrice_adj()  # le tableau de transition contient tout les arcs
@@ -71,11 +79,17 @@ class Graphe:
                         [new_val, id] = self.existence_arcs(arcs[0], thing[1], transition)  # existence de la somme des 2 arcs
                         if new_val == "-":  # s'il n'existe pas
                             transition.append([arcs[0], thing[1], str(int(arcs[2])+int(thing[2]))])  # on l'ajoute dans le tableau
+                            index = self.existence_chemin(arcs[0], thing[0], chemin)
+                            chemin.append(chemin[index]+[thing[1]])
                             changement = True
                         elif int(new_val) > int(arcs[2])+int(thing[2]):  # si la somme des valeurs est inférieur à une valeur déjà calculé
+                            index = self.existence_chemin(arcs[0], thing[1], chemin)
+                            partnew_index = self.existence_chemin(arcs[0], thing[0], chemin)
+                            chemin[index] = chemin[partnew_index]+[thing[1]]
                             transition[id][2] = str(int(arcs[2])+int(thing[2]))  # on remplace cette valeur
             # test de présence de cycle absorbant
             cycle_absorbant = False
+            print("Chemins :" + str(chemin))
             for i in range(self.nombre_sommet):
                 valeur = self.existence_arcs(str(i), str(i), transition)[0]  # Recherche les valeurs dans la diagonale
                 if valeur != "-":

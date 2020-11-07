@@ -1,0 +1,34 @@
+Trace de l'algorithme :
+Quelles graphes orientés voulez vous choisir ? tapez fin pour arreter1
+C R E A T I O N   A U T O M A T E
+MATRICE D'ADAJACENCE
+ |0|1|2|3|
+0|-|1|5|-|
+1|-|-|3|5|
+2|-|-|-|2|
+3|-|-|-|-|
+ALGORITHME DE FLOYD-WARSHALL
+ETAT INITIAL
+MATRICE D'ADAJACENCE
+ |0|1|2|3|
+0|-|1|5|-|
+1|-|-|3|5|
+2|-|-|-|2|
+3|-|-|-|-|
+Chemins :[['0', '1'], ['1', '3'], ['1', '2'], ['2', '3'], ['0', '1', '2'], ['0', '1', '3']]
+ETAPE n°2
+MATRICE D'ADAJACENCE
+ |0|1|2|3|
+0|-|1|4|6|
+1|-|-|3|5|
+2|-|-|-|2|
+3|-|-|-|-|
+Chemins :[['0', '1'], ['1', '3'], ['1', '2'], ['2', '3'], ['0', '1', '2'], ['0', '1', '3']]
+ETAPE n°3
+MATRICE D'ADAJACENCE
+ |0|1|2|3|
+0|-|1|4|6|
+1|-|-|3|5|
+2|-|-|-|2|
+3|-|-|-|-|
+Quelles graphes orientés voulez vous choisir ? tapez fin pour arreterTrace de l'algorithme :
