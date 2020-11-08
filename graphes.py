@@ -67,6 +67,7 @@ class Graphe:
             chemin.append([i[0], i[1]])
         changement = True
         print("ETAT INITIAL")
+        print("Chemins :" + str(chemin))
         self.matrice_adj()  # le tableau de transition contient tout les arcs
         while changement:
             transition = []
@@ -79,13 +80,21 @@ class Graphe:
                         [new_val, id] = self.existence_arcs(arcs[0], thing[1], transition)  # existence de la somme des 2 arcs
                         if new_val == "-":  # s'il n'existe pas
                             transition.append([arcs[0], thing[1], str(int(arcs[2])+int(thing[2]))])  # on l'ajoute dans le tableau
-                            index = self.existence_chemin(arcs[0], thing[0], chemin)
-                            chemin.append(chemin[index]+[thing[1]])
+                            index = self.existence_chemin(arcs[0], arcs[1], chemin)
+                            index_part = self.existence_chemin(thing[0], thing[1], chemin)
+                            trans = []
+                            trans = trans + chemin[index]
+                            del trans[-1]
+                            chemin.append(trans+chemin[index_part])
                             changement = True
                         elif int(new_val) > int(arcs[2])+int(thing[2]):  # si la somme des valeurs est inférieur à une valeur déjà calculé
                             index = self.existence_chemin(arcs[0], thing[1], chemin)
-                            partnew_index = self.existence_chemin(arcs[0], thing[0], chemin)
-                            chemin[index] = chemin[partnew_index]+[thing[1]]
+                            new_indexpart = self.existence_chemin(thing[0], thing[1], chemin)
+                            partnew_index = self.existence_chemin(arcs[0], arcs[1], chemin)
+                            trans = []
+                            trans = trans + chemin[partnew_index]
+                            del trans[-1]
+                            chemin[index] = trans+chemin[new_indexpart]
                             transition[id][2] = str(int(arcs[2])+int(thing[2]))  # on remplace cette valeur
             # test de présence de cycle absorbant
             cycle_absorbant = False
