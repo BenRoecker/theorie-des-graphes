@@ -85,6 +85,7 @@ class Graphe:
                             trans = []
                             trans = trans + chemin[index]
                             del trans[-1]
+                            print("ajout du chemin :", trans+chemin[index_part] )
                             chemin.append(trans+chemin[index_part])
                             changement = True
                         elif int(new_val) > int(arcs[2])+int(thing[2]):  # si la somme des valeurs est inférieur à une valeur déjà calculé
@@ -94,6 +95,7 @@ class Graphe:
                             trans = []
                             trans = trans + chemin[partnew_index]
                             del trans[-1]
+                            print("Modification du chemin :", chemin[index], "-->", trans+chemin[new_indexpart])
                             chemin[index] = trans+chemin[new_indexpart]
                             transition[id][2] = str(int(arcs[2])+int(thing[2]))  # on remplace cette valeur
             # test de présence de cycle absorbant
