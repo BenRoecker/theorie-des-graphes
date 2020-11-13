@@ -1,5 +1,5 @@
 # coding : utf-8
-import graphes
+import G5_graphes as graphes
 
 if __name__ == '__main__':
     choix = input("Quelles graphes orientés voulez vous choisir ? tapez fin pour arreter")
@@ -15,7 +15,7 @@ if __name__ == '__main__':
             except:
                 choix = 0
         choix = str(choix)
-        texte = "graphes/graphe_" + choix + ".txt"
+        texte = "graphes/G5-graphe_" + choix + ".txt"
         cool = graphes.Graphe(texte)
         cool.matrice_adj()
         cool.floyd_warshall()

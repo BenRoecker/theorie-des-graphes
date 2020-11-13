@@ -54,6 +54,7 @@ class Graphe:
                 return [tab[i][2], i]
         return ["-", ""]
 
+    # Permet de retourner l'index d'un chemin à partir de son sommet initial et de son sommet terminal
     def existence_chemin(self, init, term, chemin):
         for i in range(len(chemin)):
             if init == chemin[i][0] and term == chemin[i][len(chemin[i])-1]:
@@ -69,6 +70,7 @@ class Graphe:
         print("ETAT INITIAL")
         print("Chemins :" + str(chemin))
         self.matrice_adj()  # le tableau de transition contient tout les arcs
+        cycle_absorbant = False
         while changement:
             transition = []
             transition = transition + self.arcs
@@ -112,3 +114,10 @@ class Graphe:
             print("ETAPE n°" + str(etat+1))
             self.arcs = transition
             self.matrice_adj()
+        if not cycle_absorbant:
+            init = input("Choisi un sommet de départ :(fin pour arreter)")
+            while init != "fin":
+                term = input("Choisi un sommet d'arrivé :")
+                print("le chemin entre le sommet "+ init+ " et le sommet"+term+" :", chemin[self.existence_chemin(init, term, chemin)])
+                init = input("Choisi un sommet de départ :(fin pour arreter)")
+#
