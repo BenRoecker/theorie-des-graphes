@@ -1,0 +1,43 @@
+Quelles graphes orientés voulez vous choisir ? tapez fin pour arreterC R E A T I O N   A U T O M A T E
+MATRICE D'ADAJACENCE
+  |0 |1 |2 |3 |
+0 |- |1 |-5|- |
+1 |- |-1|-3|2 |
+2 |6 |4 |- |2 |
+3 |- |- |2 |- |
+ALGORITHME DE FLOYD-WARSHALL
+ETAT INITIAL
+Chemins :[['0', '1'], ['0', '2'], ['1', '1'], ['1', '2'], ['1', '3'], ['2', '0'], ['2', '1'], ['2', '3'], ['3', '2']]
+MATRICE D'ADAJACENCE
+  |0 |1 |2 |3 |
+0 |- |1 |-5|- |
+1 |- |-1|-3|2 |
+2 |6 |4 |- |2 |
+3 |- |- |2 |- |
+Modification du chemin : ['0', '1'] --> ['0', '1', '1']
+ajout du chemin : ['0', '1', '1', '3']
+ajout du chemin : ['0', '2', '0']
+Modification du chemin : ['0', '1', '1'] --> ['0', '2', '1']
+Modification du chemin : ['0', '1', '1', '3'] --> ['0', '2', '3']
+Modification du chemin : ['1', '1'] --> ['1', '1', '1']
+Modification du chemin : ['1', '2'] --> ['1', '1', '1', '2']
+Modification du chemin : ['1', '3'] --> ['1', '1', '1', '3']
+ajout du chemin : ['1', '1', '1', '2', '0']
+Modification du chemin : ['1', '1', '1', '3'] --> ['1', '1', '1', '2', '3']
+ajout du chemin : ['2', '0', '2']
+Modification du chemin : ['2', '1'] --> ['2', '1', '1', '1']
+Modification du chemin : ['2', '0', '2'] --> ['2', '1', '1', '1', '1', '1', '2']
+Modification du chemin : ['2', '3'] --> ['2', '1', '1', '1', '1', '1', '2', '3']
+ajout du chemin : ['3', '2', '0']
+ajout du chemin : ['3', '2', '1', '1', '1']
+ajout du chemin : ['3', '2', '1', '1', '1', '1', '1', '2', '3']
+Chemins :[['0', '2', '1'], ['0', '2'], ['1', '1', '1'], ['1', '1', '1', '2'], ['1', '1', '1', '2', '3'], ['2', '0'], ['2', '1', '1', '1'], ['2', '1', '1', '1', '1', '1', '2', '3'], ['3', '2'], ['0', '2', '3'], ['0', '2', '0'], ['1', '1', '1', '2', '0'], ['2', '1', '1', '1', '1', '1', '2'], ['3', '2', '0'], ['3', '2', '1', '1', '1'], ['3', '2', '1', '1', '1', '1', '1', '2', '3']]
+Il existe un cycle absorbant
+ETAPE n°2
+MATRICE D'ADAJACENCE
+  |0 |1 |2 |3 |
+0 |1 |-1|-5|-3|
+1 |1 |-2|-5|-3|
+2 |6 |2 |-3|-1|
+3 |8 |4 |2 |1 |
+Quelles graphes orientés voulez vous choisir ? tapez fin pour arreter

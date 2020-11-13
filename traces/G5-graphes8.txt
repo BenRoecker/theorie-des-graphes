@@ -1,0 +1,40 @@
+Quelles graphes orientés voulez vous choisir ? tapez fin pour arreterC R E A T I O N   A U T O M A T E
+MATRICE D'ADAJACENCE
+ |0|1|2|3|4|
+0|-|1|2|1|-|
+1|-|-|-|-|3|
+2|-|-|-|1|1|
+3|-|-|-|-|4|
+4|-|-|-|-|-|
+ALGORITHME DE FLOYD-WARSHALL
+ETAT INITIAL
+Chemins :[['0', '1'], ['0', '2'], ['0', '3'], ['1', '4'], ['2', '4'], ['2', '3'], ['3', '4']]
+MATRICE D'ADAJACENCE
+ |0|1|2|3|4|
+0|-|1|2|1|-|
+1|-|-|-|-|3|
+2|-|-|-|1|1|
+3|-|-|-|-|4|
+4|-|-|-|-|-|
+ajout du chemin : ['0', '1', '4']
+Modification du chemin : ['0', '1', '4'] --> ['0', '2', '4']
+Chemins :[['0', '1'], ['0', '2'], ['0', '3'], ['1', '4'], ['2', '4'], ['2', '3'], ['3', '4'], ['0', '2', '4']]
+ETAPE n°2
+MATRICE D'ADAJACENCE
+ |0|1|2|3|4|
+0|-|1|2|1|3|
+1|-|-|-|-|3|
+2|-|-|-|1|1|
+3|-|-|-|-|4|
+4|-|-|-|-|-|
+Chemins :[['0', '1'], ['0', '2'], ['0', '3'], ['1', '4'], ['2', '4'], ['2', '3'], ['3', '4'], ['0', '2', '4']]
+ETAPE n°3
+MATRICE D'ADAJACENCE
+ |0|1|2|3|4|
+0|-|1|2|1|3|
+1|-|-|-|-|3|
+2|-|-|-|1|1|
+3|-|-|-|-|4|
+4|-|-|-|-|-|
+Choisi un sommet de départ :(fin pour arreter)Choisi un sommet d'arrivé :le chemin entre le sommet 0 et le sommet4 : ['0', '2', '4']
+Choisi un sommet de départ :(fin pour arreter)Quelles graphes orientés voulez vous choisir ? tapez fin pour arreter
